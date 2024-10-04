@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    networks:
+      - go_app_network
+
+  db:
+    image: postgres:alpine
+    environment:
+      POSTGRES_PASSWORD: password
+    networks:
+      - go_app_network
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+networks:
+  go_app_network:
+
+volumes:
+  db_data:
