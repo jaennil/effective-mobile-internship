@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/jaennil/effective_mobile_internship/10/2/user";
+
+service UserService {
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse){}
+    rpc GetUsers(GetUsersRequest) returns (GetUsersResponse){}
+    rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {}
+    rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
+}
+
+message User {
+    int32 id = 1;
+    string username = 2;
+    int32 age = 3;
+}
+
+message CreateUserRequest {
+    User user = 1;
+}
+
+message CreateUserResponse {
+    User user = 1;
+}
+
+message GetUsersRequest {
+
+}
+
+message GetUsersResponse {
+    repeated User users = 1;
+}
+
+message DeleteUserRequest {
+    int32 id = 1;
+}
+
+message DeleteUserResponse {
+
+}
+
+message UpdateUserRequest {
+    User user = 1;
+}
+
+message UpdateUserResponse {
+    User user = 1;
+}
